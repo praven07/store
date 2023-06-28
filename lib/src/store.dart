@@ -24,7 +24,7 @@ abstract class Store<A, S> {
       );
     }
 
-    return actionHandlers[actionType]?.call();
+    return actionHandlers[actionType]!(action);
   }
 
   ValueStream<S> get state => _state$.stream;
