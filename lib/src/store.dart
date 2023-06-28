@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:flutter/foundation.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:store/src/exceptions.dart';
 
@@ -14,7 +13,6 @@ abstract class Store<A, S> {
   }
 
   /// Maps Type to functions.
-  @protected
   Map<Type, Function> get actionHandlers;
 
   /// Dispatch an action.
@@ -33,7 +31,6 @@ abstract class Store<A, S> {
   ValueStream<S> get state => _state$.stream;
 
   /// change the state of the store.
-  @protected
   void setState(S state) {
     this._state$.add(state);
   }
