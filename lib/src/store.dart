@@ -5,11 +5,10 @@ import 'package:store/src/exceptions.dart';
 abstract class Store<A, S> {
   late BehaviorSubject<S> _state$;
 
-  late S _initialState;
+  S get initialState;
 
-  Store(S initialState) {
-    _initialState = initialState;
-    _state$ = BehaviorSubject.seeded(_initialState);
+  Store() {
+    _state$ = BehaviorSubject.seeded(initialState);
   }
 
   /// Maps Type to functions.
